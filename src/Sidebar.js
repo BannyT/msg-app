@@ -13,7 +13,15 @@ export default function Sidebar() {
           <div className="sidebar-header">
             <Avatar/>
              <div className="header-right">
-
+               <IconButton>
+                <DonutLarge/>
+               </IconButton>
+                <IconButton>
+                <ChatIcon/>
+                </IconButton>
+                <IconButton>
+                <MoreVertIcon/>
+                </IconButton>   
              </div>
           </div>    
     </div>
