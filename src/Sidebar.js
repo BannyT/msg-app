@@ -9,8 +9,13 @@ import SidebarChats from './SidebarChats';
 
 export default function Sidebar() {
   return (
-    <div>
-        <h3>My side bar</h3>
+    <div className="side-bar">
+          <div className="sidebar-header">
+
+             <div className="header-right">
+
+             </div>
+          </div>    
     </div>
   )
 }
