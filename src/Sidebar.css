@@ -1,6 +1,6 @@
 .side-bar{
     display:flex;
-    flex: 0.5;
+    flex: 0.35;
     flex-direction: column;
 }
 .sidebar-header{
@@ -16,3 +16,28 @@
     justify-content: space-between;
     min-width: 10vw;
 }
+
+.sidebar-search{
+    display: flex;
+    align-items: center;
+    background-color: #f6f6f6;
+    padding: 10px;
+    height: 39px;
+}
+.search-container{
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 20px;
+
+}
+.search-container >input {
+    border: none;
+    margin-left: 10px;
+    outline-width: 0;
+    padding: 10px;
+    height:10px;
+    cursor: pointer;
+}
+

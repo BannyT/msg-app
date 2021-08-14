@@ -23,7 +23,13 @@ export default function Sidebar() {
                 <MoreVertIcon/>
                 </IconButton>   
              </div>
-          </div>    
+          </div> 
+          <div className="sidebar-search">
+              <div className="search-container">
+                  <SearchIcon/>
+                  <input/>
+              </div>
+          </div>   
     </div>
   )
 }
