@@ -54,7 +54,9 @@
     margin: 5px;
     font-family: 'Times New Roman', Times, serif;
 }
-
+.top-avatar{
+    margin:5px !important;
+}
 
 .sidebar-chats{
     flex: 1;

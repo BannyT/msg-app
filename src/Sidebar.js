@@ -12,7 +12,7 @@ export default function Sidebar() {
   return (
     <div className="side-bar">
           <div className="sidebar-header">
-            <Avatar/>
+            <Avatar className="top-avatar"/>
              <div className="header-right">
                <IconButton>
                 <DonutLarge/>
