@@ -1,7 +1,14 @@
 import React from 'react'
 import "./Login.css"
+import {auth, provider} from "./firebase"
 
 export default function Login() {
+
+  const signIn=()=>{
+     auth.signInWithPopup(provider).then(res=>{}).catch((e)=>alert(e.message))
+  }
+
+
   return (
     <div className="login">
         <div className="login-container">
@@ -9,7 +16,7 @@ export default function Login() {
             <div className="login-text">
                  <h2>Sign in with us</h2>
             </div>
-            <button>SignIn With Google</button>
+            <button onClick={signIn} >SignIn With Google</button>
         </div>
       
     </div>

@@ -29,10 +29,10 @@ const firebaseConfig = {
 
   // configure google authentication service
 
-  const provider = new  firebase.auth.GithubAuthProvider()
+  const provider = new  firebase.auth.GoogleAuthProvider()
 
 
   // export our instances
 
-  export {auth,privider}
+  export {auth,provider}
    export default db
