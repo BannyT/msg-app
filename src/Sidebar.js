@@ -19,7 +19,7 @@ export default function Sidebar() {
      if(chatname){
        db.collection('Rooms').add({
          chatname:chatname
-       })
+       }).catch((e)=>toast.error(e.message))
        toast.success("Chat Successfully Created ")
      }
   }
