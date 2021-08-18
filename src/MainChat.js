@@ -16,7 +16,7 @@ export default function MainChat() {
                <h3>message Header</h3>
                <p>Last seen message and time</p>
             </div>
-            <div clasName="message-right"> 
+            <div className="message-right"> 
                <IconButton>
                <AccountBoxIcon/>
                </IconButton>
