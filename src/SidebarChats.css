@@ -21,3 +21,7 @@ chat-info{
 .avat{
     margin-right: 10px;
 }
+.sidebar_link{
+    text-decoration: none;
+    color: black;
+}

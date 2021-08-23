@@ -6,8 +6,10 @@ import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import {useParams} from "react-router-dom";
 
 export default function MainChat() {
+    const {roomId} =useParams()
   return (
     <div className="chat-field">
         <div className="message-header">

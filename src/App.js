@@ -47,7 +47,7 @@ function App() {
                      <Sidebar/>
                      <MainChat/>
                    </Route>
-                   <Route exact path="rooms/:roodId">
+                   <Route exact path="/rooms/:roomId">
                      <Sidebar/>
                      <MainChat/>
                    </Route>

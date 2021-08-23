@@ -10,9 +10,12 @@ import SidebarChats from './SidebarChats';
 import db from "./firebase"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useStateValue} from "./StateProvider"
 
-export default function Sidebar() {
+export default function Sidebar({id}) {
      const [rooms,setRooms]=useState([])
+     const [{user}]=useStateValue()
+    //  console.log(user)
  // function to create a chat room
   const  createNewChat =()=>{
      const chatname = prompt("Enter Room Name")
@@ -36,14 +39,14 @@ export default function Sidebar() {
          sub()
        }
 
-    },[])
+    },[id])
 
     console.log(rooms)
   return (
     <div className="side-bar">
        <ToastContainer />
           <div className="sidebar-header">
-            <Avatar className="top-avatar"/>
+            <Avatar src={user?.photoURL} className="top-avatar"/>
              <div className="header-right">
                <IconButton>
                 <DonutLarge/>
