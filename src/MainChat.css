@@ -119,7 +119,11 @@
     border-radius: 10px;
 }
 
-sender :before{
+list-Item{
+    cursor: pointer !important;
+}
+
+.sender :before{
     content:'';
     position: absolute;
     height: 0;

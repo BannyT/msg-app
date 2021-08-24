@@ -15,6 +15,7 @@ import {useStateValue} from "./StateProvider"
 export default function Sidebar({id}) {
      const [rooms,setRooms]=useState([])
      const [{user}]=useStateValue()
+     const [chanel,setChanel]=useState('')
     //  console.log(user)
  // function to create a chat room
   const  createNewChat =()=>{
@@ -41,14 +42,37 @@ export default function Sidebar({id}) {
 
     },[id])
 
-    console.log(rooms)
+  // method to filter message channels
+    const filterChannels =(e)=>{
+      e.preventDefault()
+      let value = e.target.value.toLowerCase()
+      let result =[]
+      result = rooms.filter((res)=>{
+        return res.chatname.chatname.toLowerCase().search(value)!=-1;
+      })
+
+       setRooms(result)
+    }
+
+    //refresh rooms
+     const refresh =()=>{
+      const sub= db.collection('Rooms').onSnapshot(snap=>{
+        setRooms(snap.docs.map(doc=>({
+          chatname:doc.data(),
+          id:doc.id
+        })))
+      })
+      return ()=>{
+        sub()
+      }
+     }
   return (
     <div className="side-bar">
        <ToastContainer />
           <div className="sidebar-header">
             <Avatar src={user?.photoURL} className="top-avatar"/>
              <div className="header-right">
-               <IconButton>
+               <IconButton onClick={refresh}>
                 <DonutLarge/>
                </IconButton>
                 <IconButton>
@@ -62,7 +86,7 @@ export default function Sidebar({id}) {
           <div className="sidebar-search">
               <div className="search-container">
                   <SearchIcon/>
-                  <input/>
+                  <input  onChange={filterChannels} />
               </div>
           </div>
           <div onClick={createNewChat} className="chat-head">
