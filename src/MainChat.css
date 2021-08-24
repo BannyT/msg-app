@@ -102,3 +102,32 @@
   cursor: pointer;
   padding: 10px;
 }
+
+
+.sender{
+    position: relative;
+    margin-left: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    width: fit-content;
+    height: 50px;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid purple;
+    border-radius: 10px;
+}
+
+sender :before{
+    content:'';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 17px solid purple;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    top: -1px;
+    left: -17px;
+}
+

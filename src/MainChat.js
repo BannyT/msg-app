@@ -22,10 +22,10 @@ export default function MainChat() {
     //fuction to send messages
     const sendMessage =(e)=>{
         e.preventDefault();
-        db.collection("Rooms").doc(rommId).collection('messages').add({
+        db.collection("Rooms").doc(roomId).collection('messages').add({
             text:message,
             name:user.displayName,
-            timestamp:firebase.firestore.FieldValue.serverTimesStamp() 
+            timestamp:firebase.firestore.FieldValue.serverTimestamp() 
 
         }).catch((e)=>toast.error(e.message))
        toast.success('message sent successfully')
@@ -35,11 +35,11 @@ export default function MainChat() {
   //function to retrive messages from thr db
    useEffect(()=>{
         if(roomId){
-            db.collection('Rooms').doc(roomId).collection('messages').orderby('timestamp','asc').onSnapshot(snap=>{
+            db.collection('Rooms').doc(roomId).collection('messages').orderBy('timestamp','asc').onSnapshot(snap=>{
                 setMessages(snap.docs.map(doc=>doc.data()))
             })
         }
-   },[])
+   },[roomId])
 
   return (
     <div className="chat-field">
@@ -65,7 +65,7 @@ export default function MainChat() {
      {/* create a div here and give is a class name message body */}
          <div className="message-body">
                   {messages.map((msg)=>(
-                    <p className="chat-message">{msg.text}<br/>
+                    <p className={`chat-message ${msg.name===user.displayName && 'sender'}`}>{msg.text}<br/>
                          <small className="time">4days ago</small>
                      </p>
                   ))
