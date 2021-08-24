@@ -191,7 +191,7 @@ export default function MainChat() {
               </ListItemAvatar>
               <ListItemText className="list-Item" primary="Logout" />
             </ListItem>
-          <ListItem className="list-Item">
+          <ListItem className="list-Item">   
             <ListItemAvatar>
               <Avatar>
                 <AddIcon />
