@@ -12,12 +12,14 @@ import firebase from 'firebase'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useStateValue} from "./StateProvider"
+import * as timeago from 'timeago.js';
 
 export default function MainChat() {
     const {roomId} =useParams()
     const [message,setMessage]=useState('')
     const [messages,setMessages]=useState([])
     const [{user}]=useStateValue()
+    const [channelname, setchannelName]=useState('')
 
     //fuction to send messages
     const sendMessage =(e)=>{
@@ -38,6 +40,9 @@ export default function MainChat() {
             db.collection('Rooms').doc(roomId).collection('messages').orderBy('timestamp','asc').onSnapshot(snap=>{
                 setMessages(snap.docs.map(doc=>doc.data()))
             })
+            db.collection("Rooms").doc(roomId).onSnapshot(res=>{
+                setchannelName(res.data().chatname)
+            })
         }
    },[roomId])
 
@@ -47,7 +52,7 @@ export default function MainChat() {
         <div className="message-header">
            <Avatar/>
             <div className="header-info">
-               <h3>message Header</h3>
+               <h3>{channelname}</h3>
                <p>Last seen message and time</p>
             </div>
             <div className="message-right"> 
@@ -66,7 +71,7 @@ export default function MainChat() {
          <div className="message-body">
                   {messages.map((msg)=>(
                     <p className={`chat-message ${msg.name===user.displayName && 'sender'}`}>{msg.text}<br/>
-                         <small className="time">4days ago</small>
+                         <small className="time">{timeago.format(new Date(msg?.timestamp?.toDate()))}</small>
                      </p>
                   ))
 
