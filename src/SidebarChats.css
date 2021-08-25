@@ -26,3 +26,6 @@ chat-info{
     text-decoration: none;
     color: black;
 }
+.badge{
+    margin: 10px !important;
+}

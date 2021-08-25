@@ -3,6 +3,8 @@ import "./SidebarChats.css"
 import {Avatar, IconButton} from "@material-ui/core"
 import {Link} from "react-router-dom";
 import db from "./firebase"
+import Badge from '@material-ui/core/Badge';
+import MailIcon from '@material-ui/icons/Mail';
 
 export default function SidebarChats({chatname,id}) {
    const[messages, setMessages]=useState([])
@@ -28,9 +30,17 @@ useEffect(()=>{
              <p>{messages[0]?.text}</p>
           ):(
             <p>No messages </p>
-          )}
-          
-      </div>   
+          )}    
+      </div>
+      <div>
+        {messages.length>0?(
+         <Badge className="badge" color="secondary" badgeContent={messages.length} />
+        ):(
+          <Badge className="badge" color="secondary" badgeContent="0" />
+        )
+        }
+      
+      </div>  
     </div>
     </Link>
     
