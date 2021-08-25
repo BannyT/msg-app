@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {useStateValue} from "./StateProvider"
 import * as timeago from 'timeago.js';
 import {auth} from "./firebase"
+import InputEmoji from "react-input-emoji";
 
 
 
@@ -174,8 +175,9 @@ export default function MainChat() {
          </div> 
          <div className="message-footer">
              <form>
-                 <input  value={message} onChange={(e)=>setMessage(e.target.value)}   />
-                 <button onClick={sendMessage}>Send Message</button>
+             <InputEmoji value={message} onChange={setMessage} cleanOnEnter  placeholder="Type a message"/>
+                 {/* <input  value={message} onChange={(e)=>setMessage(e.target.value)}   /> */}
+              <button onClick={sendMessage}>Send Message</button>
              </form>
          </div> 
   
